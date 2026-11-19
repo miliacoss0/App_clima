@@ -1,15 +1,24 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title> Pronóstico Extendido </ion-title>
+    <ion-title>Pronóstico</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="¿Frío, lluvia o calor?"></app-explore-container>
+<ion-content>
+  @if (cargando()) {
+    <ion-spinner></ion-spinner>
+  } @else if (error()) {
+    <p class="ion-padding">No se pudo cargar el pronóstico. Intentalo de nuevo.</p>
+  } @else {
+    <ion-list>
+      @for (dia of dias(); track dia.fecha) {
+        <ion-item>
+          <ion-label>
+            <h2>{{ dia.fecha }}</h2>
+            <p>Máx {{ dia.max }} °C · Min {{ dia.min }} °C</p>
+          </ion-label>
+        </ion-item>
+      }
+    </ion-list>
+  }
 </ion-content>
