@@ -1,0 +1,22 @@
+[
+    {"nombre": "Asunción", "latitud":-25.2822, "longitud": -57.6351},
+    {"nombre": "Areguá", "latitud":-25.3125, "longitud": -57.3847},
+    {"nombre": "Capiatá", "latitud":-25.3500, "longitud": -57.4200},
+    {"nombre": "Fdo. de la Mora", "latitud":-25.3200, "longitud": -57.5400},
+    {"nombre": "Guarambaré", "latitud":-25.4908, "longitud": -57.4556},
+    {"nombre": "Itá", "latitud":-25.5006, "longitud": -57.3672},
+    {"nombre": "Itaguá", "latitud":-25.3856, "longitud": -57.3458},
+    {"nombre": "J. Augusto Saldívar", "latitud":-25.4442, "longitud": -57.4008},
+    {"nombre": "Lambraré", "latitud":-25.3453, "longitud": -57.6064},
+    {"nombre": "Limpio", "latitud":-25.1683, "longitud": -57.4942},
+    {"nombre": "Luque", "latitud":-25.2700, "longitud": -57.4872},
+    {"nombre": "Mariano Roque Alonso", "latitud":-25.2078, "longitud": -57.5322},
+    {"nombre": "Ñemby", "latitud":-25.3936, "longitud": -57.5433},
+    {"nombre": "Nueva Italia", "latitud":-25.6108, "longitud": -57.4656},
+    {"nombre": "San Antonio", "latitud":-25.4214, "longitud": -57.5472},
+    {"nombre": "San Lorenzo", "latitud":-25.3431, "longitud": -57.5094},
+    {"nombre": "Villa Elisa", "latitud":-25.3675, "longitud": -57.5928},
+    {"nombre": "Villeta", "latitud":-25.5067, "longitud": -57.5625},
+    {"nombre": "Ypacaraí", "latitud":-25.4078, "longitud": -57.2889},
+    {"nombre": "Ypané", "latitud":-25.4589, "longitud": -57.5297}
+]

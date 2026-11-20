@@ -5,7 +5,9 @@
 export const environment = {
   production: false,
   apiUrl: 'https://api.open-meteo.com/v1/forecast',
-  geoUrl: 'https://geocoding-api.open-meteo.com/v1/search'
+  geoUrl: 'https://geocoding-api.open-meteo.com/v1/search',
+  ciudadesUrl: 'assets/data/ciudades.json'
+
 };
 
 /*
