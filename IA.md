@@ -10,6 +10,9 @@ Claude (Anthropic), en el chat web.
 - Pegue mensajes de error para que me ayude a entenderlos.
 - Pedi orientacion para la pestaña Ciudades usando un archivo JSON local (ciudades.json) en lugar de una API.
 - Pegue mi codigo de `ciudad.service.ts` y de `tab3` para que me señale errores.
+- Le conte que la idea de la app me parecía corta y le pedí ideas para completarla. Me recomendó no agregar fotos de usuarios (necesitan servidor y salen del alcance) y sumar más componentes de Ionic.
+- Pedi como hacer que las pestañas compartan la ciudad elegida.
+- Pegue mi intento de `tab2.page.ts` para que me señale los errores.
 
 ## Codigo que genero la IA
 - Codigo base de `clima.service.ts`.
@@ -17,7 +20,9 @@ Claude (Anthropic), en el chat web.
 - Explicaciones de que hace cada parte
 - Estructura sugerida para `ciudades.json` (formato nombre/latitud/longitud).
 - Version corregida de `ciudad.service.ts` (orden del decorador y la interfaz).
-- Version corregida de `tab3.page.ts` y `tab3.page.html`, que seguia el patron de la pestaña Pronostico.
+- Version corregida de `tab3.page.ts` y `tab3.page.html`, que seguia el patron de la pestaña Pronostico
+- La idea y el código de `ubicacion.service.ts`
+- La correccion de mi `tab2.page.ts`
 
 ## Que hice yo
 - Cree el proyecto, el repositorio y los commits.
@@ -30,3 +35,6 @@ Claude (Anthropic), en el chat web.
 - Escribi mi primera versión de `ciudad.service.ts` y de `tab3`, copiando y adaptando el patrón de las otras pestañas
 - Encontre y corregi errores de tipeo (comas en lugar de punto y coma) que impedian mostrar la lista, leyendo el error de la terminal
 - Defini la idea de la pestaña: elegir entre las ciudades de Central
+- Decidi que la app fuera de Asunción y Central, con el clima de mi ubicación en Hoy y la elección de ciudades en una pestaña aparte.
+- Escribi mi propia versión de los cambios en `tab2.page.ts` (inyectar el servicio y leer la ciudad) y después la corregí con las observaciones.
+- Probe cambiando la ciudad en el servicio para comprobar que el título y las temperaturas cambian.
