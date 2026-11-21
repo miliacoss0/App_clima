@@ -15,6 +15,7 @@ import { ClimaService } from '../services/clima.service';
     IonList, IonItem, IonLabel, IonSpinner,
   ],
 })
+
 export class Tab2Page implements OnInit {
   cargando = signal(true);
   error = signal(false);
