@@ -1,32 +1,35 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { 
+import {
   IonHeader, IonToolbar, IonTitle, IonContent,
   IonList, IonItem, IonLabel, IonSpinner,
 } from '@ionic/angular';
 
 import { ClimaService } from '../services/clima.service';
+import { UbicacionService } from '../services/ubicacion.service';
 
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss'],
   imports: [
-    IonHeader, IonToolbar, IonTitle, IonContent, 
+    IonHeader, IonToolbar, IonTitle, IonContent,
     IonList, IonItem, IonLabel, IonSpinner,
   ],
 })
-
 export class Tab2Page implements OnInit {
   cargando = signal(true);
   error = signal(false);
   dias = signal<{ fecha: string; max: number; min: number }[]>([]);
 
-  constructor(private climaService: ClimaService) {}
+  constructor(
+    private climaService: ClimaService,
+    public ubicacion: UbicacionService,
+  ) {}
 
   ngOnInit() {
-    this.climaService.obtenerClima(-25.2637, -57.5759).subscribe({
+    const ciudad = this.ubicacion.ciudadActual();
+    this.climaService.obtenerClima(ciudad.latitud, ciudad.longitud).subscribe({
       next: (datos) => {
-       // console.log('Datos recibidos', datos);
         const lista = datos.daily.time.map((fecha: string, i: number) => ({
           fecha,
           max: datos.daily.temperature_2m_max[i],
@@ -37,8 +40,8 @@ export class Tab2Page implements OnInit {
       },
       error: (e) => {
         console.error('Error al pedir el pronóstico:', e);
-        this.error.set(true),
-        this.error.set(false);
+        this.error.set(true);
+        this.cargando.set(false);
       },
     });
   }
