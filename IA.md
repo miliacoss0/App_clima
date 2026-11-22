@@ -23,6 +23,7 @@ Claude (Anthropic), en el chat web.
 - Version corregida de `tab3.page.ts` y `tab3.page.html`, que seguia el patron de la pestaña Pronostico
 - La idea y el código de `ubicacion.service.ts`
 - La correccion de mi `tab2.page.ts`
+- El patron de ionViewWillEnter y cargarClima() en `tab1.page.ts`
 
 ## Que hice yo
 - Cree el proyecto, el repositorio y los commits.
@@ -37,4 +38,5 @@ Claude (Anthropic), en el chat web.
 - Defini la idea de la pestaña: elegir entre las ciudades de Central
 - Decidi que la app fuera de Asunción y Central, con el clima de mi ubicación en Hoy y la elección de ciudades en una pestaña aparte.
 - Escribi mi propia versión de los cambios en `tab2.page.ts` (inyectar el servicio y leer la ciudad) y después la corregí con las observaciones.
-- Probe cambiando la ciudad en el servicio para comprobar que el título y las temperaturas cambian.
+- Probe cambiando la ciudad en el servicio para comprobar que el título y las temperaturas cambian
+- Adapte ese patron a `tab2.page.ts` por mi cuenta (magicamente salio XD), con el bloque de pronostico
