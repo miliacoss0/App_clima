@@ -5,6 +5,7 @@ import {
 } from '@ionic/angular';
 
 import { Ciudad, CiudadService } from '../services/ciudades.service';
+import { UbicacionService } from '../services/ubicacion.service';
 
 @Component({
   selector: 'app-tab3',
@@ -18,12 +19,13 @@ export class Tab3Page implements OnInit {
   error = signal(false);
   ciudades = signal<Ciudad[]>([]);
 
-  constructor( private ciudadService: CiudadService) {}
+  constructor( 
+    private ciudadService: CiudadService,
+    public ubicacion: UbicacionService) {}
 
   ngOnInit() {
     this.ciudadService.obtenerCiudades().subscribe({
       next: (datos) => {
-        console.log('Ciudades recibidas', datos);
         this.ciudades.set(datos);
         this.cargando.set(false);
      },
@@ -33,5 +35,10 @@ export class Tab3Page implements OnInit {
         this.cargando.set(false);
       },
     });
+  }
+
+  seleccionar(ciudad: Ciudad) {
+    console.log('Ciudad elegida:', ciudad.nombre);
+    this.ubicacion.elegir(ciudad);
   }
 }

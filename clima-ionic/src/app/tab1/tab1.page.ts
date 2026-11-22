@@ -7,7 +7,7 @@ import {
 
 import { ClimaService } from '../services/clima.service';
 import { UbicacionService } from '../services/ubicacion.service';
-import { min } from 'rxjs';
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',

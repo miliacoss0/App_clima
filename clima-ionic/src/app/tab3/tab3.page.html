@@ -12,7 +12,7 @@
   } @else {
     <ion-list>
       @for (ciudad of ciudades(); track ciudad.nombre) {
-        <ion-item>
+        <ion-item button (click)="seleccionar(ciudad)">
           <ion-label>
             <h2> {{ ciudad.nombre }}</h2>
           </ion-label>
