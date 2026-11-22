@@ -26,8 +26,23 @@ export class Tab2Page implements OnInit {
     public ubicacion: UbicacionService,
   ) {}
 
+  private ultimaCiudad = '';
+
   ngOnInit() {
+    this.cargarClima();
+  }
+
+  ionViewWillEnter () {
+    if (this.ubicacion.ciudadActual().nombre !== this.ultimaCiudad) {
+      this.cargarClima();
+    }
+  }
+
+  private cargarClima() {
     const ciudad = this.ubicacion.ciudadActual();
+    this.ultimaCiudad = ciudad.nombre;
+    this.cargando.set(true);
+    this.error.set(false);
     this.climaService.obtenerClima(ciudad.latitud, ciudad.longitud).subscribe({
       next: (datos) => {
         const lista = datos.daily.time.map((fecha: string, i: number) => ({
