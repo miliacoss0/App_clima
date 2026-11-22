@@ -10,6 +10,6 @@ export class UbicacionService {
     });
 
     elegir(ciudad: Ciudad) {
-        this.ciudadActual.set(ciudad);
+        this.ciudadActual.set(ciudad)
     }
 }

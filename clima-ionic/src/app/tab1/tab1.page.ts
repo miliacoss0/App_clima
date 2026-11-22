@@ -6,7 +6,8 @@ import {
  } from '@ionic/angular';
 
 import { ClimaService } from '../services/clima.service';
-
+import { UbicacionService } from '../services/ubicacion.service';
+import { min } from 'rxjs';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -22,16 +23,19 @@ export class Tab1Page implements OnInit {
   error = signal(false);
   temperatura = signal<number | null>(null);
 
-  constructor(private climaService: ClimaService) {}
+  constructor (
+    private climaService: ClimaService,
+    public ubicacion: UbicacionService) {}
 
   ngOnInit() {
-    this.climaService.obtenerClima(-25.2637, -57.5759).subscribe({
+    const ciudad = this.ubicacion.ciudadActual();
+    this.climaService.obtenerClima(ciudad.latitud, ciudad.longitud).subscribe({
       next: (datos) => {
         this.temperatura.set(datos.current.temperature_2m);
-        this.cargando.set(false);        
-      },
+        this.cargando.set(false);
+        },
       error: (e) => {
-        console.error('Error al pedir el clima', e);
+        console.error('Error al pedir el clima:', e);
         this.error.set(true);
         this.cargando.set(false);
       },
