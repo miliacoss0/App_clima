@@ -48,7 +48,6 @@ export class Tab3Page implements OnInit {
   }
 
   seleccionar(ciudad: Ciudad) {
-    console.log('Ciudad elegida:', ciudad.nombre);
     this.ubicacion.elegir(ciudad);
     this.router.navigateByUrl('/tabs/tab1');
   }
