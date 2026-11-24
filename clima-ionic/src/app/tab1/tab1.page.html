@@ -1,10 +1,14 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar color="primary">
-    <ion-title> Hoy </ion-title>
+    <ion-title>Hoy</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+  <ion-refresher slot="fixed" (ionRefresh)="refrescar($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   @if (cargando()) {
     <ion-spinner></ion-spinner>
   } @else if (error()) {
@@ -12,7 +16,7 @@
   } @else {
     <ion-card>
       <ion-card-header>
-        <ion-card-title>{{ ubicacion.ciudadActual().nombre}}</ion-card-title>
+        <ion-card-title>{{ ubicacion.ciudadActual().nombre }}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <div class="temperatura">{{ temperatura() }} °C</div>
@@ -20,3 +24,10 @@
     </ion-card>
   }
 </ion-content>
+
+<ion-toast
+  [isOpen]="toastAbierto()"
+  [message]="toastMensaje()"
+  [duration]="2000"
+  (didDismiss)="toastAbierto.set(false)"
+></ion-toast>

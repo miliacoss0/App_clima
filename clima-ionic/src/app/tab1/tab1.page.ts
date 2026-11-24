@@ -2,7 +2,8 @@ import { Component, OnInit, signal } from '@angular/core';
 import { 
   IonHeader, IonToolbar, IonTitle, IonContent,
   IonCard, IonCardHeader, IonCardTitle, IonCardContent,
-  IonSpinner,
+  IonSpinner, IonRefresher, IonRefresherContent, IonToast, 
+  RefresherCustomEvent,
  } from '@ionic/angular';
 
 import { ClimaService } from '../services/clima.service';
@@ -15,13 +16,15 @@ import { UbicacionService } from '../services/ubicacion.service';
   imports: [
     IonHeader, IonToolbar, IonTitle, IonContent,
     IonCard, IonCardHeader, IonCardTitle, IonCardContent,
-    IonSpinner,
+    IonSpinner, IonRefresher, IonRefresherContent, IonToast,
   ],
 })
 export class Tab1Page implements OnInit {
   cargando = signal(true);
   error = signal(false);
   temperatura = signal<number | null>(null);
+  toastAbierto = signal(false);
+  toastMensaje = signal('');
 
   constructor (
     private climaService: ClimaService,
@@ -39,21 +42,40 @@ export class Tab1Page implements OnInit {
     }
   }
 
-  private cargarClima() {
+  refrescar(evento: RefresherCustomEvent) {
+    this.cargarClima(() => evento.target.complete());
+  }
+
+  private cargarClima(alTerminar?: () => void) {
     const ciudad = this.ubicacion.ciudadActual();
     this.ultimaCiudad = ciudad.nombre;
-    this.cargando.set(true);
+    if (!alTerminar) {
+      this.cargando.set(true);
+    }
     this.error.set(false);
     this.climaService.obtenerClima(ciudad.latitud, ciudad.longitud).subscribe({
       next: (datos) => {
         this.temperatura.set(datos.current.temperature_2m);
         this.cargando.set(false);
-        },
+        if (alTerminar) {
+          alTerminar();
+          this.mostrarAviso('Clima acutalizado');
+        }
+      },
       error: (e) => {
-        console.error('Error al pedir el clima:', e);
+        console.error('Error al pedir el clima',e);
         this.error.set(true);
         this.cargando.set(false);
+        if (alTerminar) {
+          alTerminar();
+          this.mostrarAviso('No se pudo actualizar');
+        }
       },
     });
+  }
+
+  private mostrarAviso(mensaje: string) {
+    this.toastMensaje.set(mensaje);
+    this.toastAbierto.set(true);
   }
 }
