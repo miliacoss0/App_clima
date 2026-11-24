@@ -2,10 +2,12 @@ import { Component, OnInit, signal } from '@angular/core';
 import {
   IonHeader, IonToolbar, IonTitle, IonContent,
   IonList, IonItem, IonLabel, IonSpinner,
+  IonIcon,
 } from '@ionic/angular';
 
 import { ClimaService } from '../services/clima.service';
 import { UbicacionService } from '../services/ubicacion.service';
+import { describirClima, InfoClima } from '../utils/clima-codigos';
 
 @Component({
   selector: 'app-tab2',
@@ -13,13 +15,14 @@ import { UbicacionService } from '../services/ubicacion.service';
   styleUrls: ['tab2.page.scss'],
   imports: [
     IonHeader, IonToolbar, IonTitle, IonContent,
-    IonList, IonItem, IonLabel, IonSpinner,
+    IonList, IonItem, IonLabel, IonSpinner, 
+    IonIcon,
   ],
 })
 export class Tab2Page implements OnInit {
   cargando = signal(true);
   error = signal(false);
-  dias = signal<{ fecha: string; max: number; min: number }[]>([]);
+  dias = signal<{ fecha: string; max: number; min: number; clima: InfoClima }[]>([]);
 
   constructor(
     private climaService: ClimaService,
@@ -49,6 +52,7 @@ export class Tab2Page implements OnInit {
           fecha,
           max: datos.daily.temperature_2m_max[i],
           min: datos.daily.temperature_2m_min[i],
+          clima: describirClima(datos.daily.weather_code[i]),
         }));
         this.dias.set(lista);
         this.cargando.set(false);

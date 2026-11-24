@@ -13,6 +13,7 @@
     <ion-list>
       @for (dia of dias(); track dia.fecha) {
         <ion-item>
+          <ion-icon slot="start" [icon]="dia.clima.icono"></ion-icon>
           <ion-label>
             <h2>{{ formatearFecha(dia.fecha) }}</h2>
             <p>Máx {{ dia.max }} °C · Min {{ dia.min }} °C</p>
