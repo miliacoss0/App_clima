@@ -60,4 +60,13 @@ export class Tab2Page implements OnInit {
       },
     });
   }
+  formatearFecha(fecha: string): string {
+    const d = new Date(fecha + 'T00:00:00');
+    const texto = d.toLocaleDateString('es-PY', {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+    });
+    return texto.charAt(0).toUpperCase() + texto.slice(1);
+  }
 }

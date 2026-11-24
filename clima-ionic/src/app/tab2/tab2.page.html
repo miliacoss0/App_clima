@@ -14,7 +14,7 @@
       @for (dia of dias(); track dia.fecha) {
         <ion-item>
           <ion-label>
-            <h2>{{ dia.fecha }}</h2>
+            <h2>{{ formatearFecha(dia.fecha) }}</h2>
             <p>Máx {{ dia.max }} °C · Min {{ dia.min }} °C</p>
           </ion-label>
         </ion-item>
