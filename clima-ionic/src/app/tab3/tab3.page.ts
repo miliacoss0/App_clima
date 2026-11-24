@@ -7,6 +7,7 @@ import {
 
 import { Ciudad, CiudadService } from '../services/ciudades.service';
 import { UbicacionService } from '../services/ubicacion.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-tab3',
@@ -29,7 +30,8 @@ export class Tab3Page implements OnInit {
 
   constructor( 
     private ciudadService: CiudadService,
-    public ubicacion: UbicacionService) {}
+    public ubicacion: UbicacionService,
+    private router: Router,) {}
 
   ngOnInit() {
     this.ciudadService.obtenerCiudades().subscribe({
@@ -48,6 +50,7 @@ export class Tab3Page implements OnInit {
   seleccionar(ciudad: Ciudad) {
     console.log('Ciudad elegida:', ciudad.nombre);
     this.ubicacion.elegir(ciudad);
+    this.router.navigateByUrl('/tabs/tab1');
   }
 
   buscar(evento: CustomEvent) {
