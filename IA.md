@@ -13,6 +13,8 @@ Claude (Anthropic), en el chat web.
 - Le conte que la idea de la app me parecía corta y le pedí ideas para completarla. Me recomendó no agregar fotos de usuarios (necesitan servidor y salen del alcance) y sumar más componentes de Ionic.
 - Pedi como hacer que las pestañas compartan la ciudad elegida.
 - Pegue mi intento de `tab2.page.ts` para que me señale los errores.
+- Pedi como agregar deslizar-para-actualizar (`ion-refresher`) y un aviso (`ion-toast`) en la pestaña Hoy.
+- Pegue mensajes de error de la consola (`aria-hidden` y `ion-refresher must be used inside ion-content`) para que me ayude a entenderlos.
 
 ## Codigo que genero la IA
 - Codigo base de `clima.service.ts`.
@@ -24,6 +26,8 @@ Claude (Anthropic), en el chat web.
 - La idea y el código de `ubicacion.service.ts`
 - La correccion de mi `tab2.page.ts`
 - El patron de ionViewWillEnter y cargarClima() en `tab1.page.ts`
+- Los métodos `refrescar`, `cargarClima` (con función opcional al terminar) y `mostrarAviso` en `tab1.page.ts`.
+- El HTML del `ion-refresher` y del `ion-toast`.
 
 ## Que hice yo
 - Cree el proyecto, el repositorio y los commits.
@@ -40,3 +44,5 @@ Claude (Anthropic), en el chat web.
 - Escribi mi propia versión de los cambios en `tab2.page.ts` (inyectar el servicio y leer la ciudad) y después la corregí con las observaciones.
 - Probe cambiando la ciudad en el servicio para comprobar que el título y las temperaturas cambian
 - Adapte ese patron a `tab2.page.ts` por mi cuenta (magicamente salio XD), con el bloque de pronostico
+- Importé los componentes nuevos, los agregué al HTML de Hoy y probé el gesto en la vista de celular del navegador.
+- Corregí la ubicación del `ion-refresher` (tenía que estar dentro de `ion-content`).
