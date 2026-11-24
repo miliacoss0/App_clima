@@ -8,10 +8,11 @@
   @if (cargando()) {
     <ion-spinner></ion-spinner>
   } @else if (error()) {
-    <p class="io-padding">No se pudieron cargar las ciudades. Intentalo de nuevo</p>
+    <p class="ion-padding">No se pudieron cargar las ciudades. Intentalo de nuevo</p>
   } @else {
+    <ion-searchbar placeholder="Buscar ciudad" (ionInput)="buscar($event)"></ion-searchbar>
     <ion-list>
-      @for (ciudad of ciudades(); track ciudad.nombre) {
+      @for (ciudad of ciudadesFiltradas(); track ciudad.nombre) {
         <ion-item button (click)="seleccionar(ciudad)">
           <ion-label>
             <h2> {{ ciudad.nombre }}</h2>
