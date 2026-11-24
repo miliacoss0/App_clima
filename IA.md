@@ -15,6 +15,8 @@ Claude (Anthropic), en el chat web.
 - Pegue mi intento de `tab2.page.ts` para que me señale los errores.
 - Pedi como agregar deslizar-para-actualizar (`ion-refresher`) y un aviso (`ion-toast`) en la pestaña Hoy.
 - Pegue mensajes de error de la consola (`aria-hidden` y `ion-refresher must be used inside ion-content`) para que me ayude a entenderlos.
+- Pedi cómo mostrar íconos de sol, nubes y lluvia según el estado del cielo, y cómo cambiar los íconos de las pestañas
+- Pegue errores de la consola (`ion-icon is not a known element` y `Cannot read properties of undefined`) para que me ayude a encontrar la causa.
 
 ## Codigo que genero la IA
 - Codigo base de `clima.service.ts`.
@@ -28,6 +30,8 @@ Claude (Anthropic), en el chat web.
 - El patron de ionViewWillEnter y cargarClima() en `tab1.page.ts`
 - Los métodos `refrescar`, `cargarClima` (con función opcional al terminar) y `mostrarAviso` en `tab1.page.ts`.
 - El HTML del `ion-refresher` y del `ion-toast`.
+- El archivo `clima-codigo.ts` (traductor de `weather_code` a texto e ícono).
+- La estructura del campo `clima` en `tab1` y `tab2`, y el HTML con `ion-icon`.
 
 ## Que hice yo
 - Cree el proyecto, el repositorio y los commits.
@@ -46,3 +50,6 @@ Claude (Anthropic), en el chat web.
 - Adapte ese patron a `tab2.page.ts` por mi cuenta (magicamente salio XD), con el bloque de pronostico
 - Importé los componentes nuevos, los agregué al HTML de Hoy y probé el gesto en la vista de celular del navegador.
 - Corregí la ubicación del `ion-refresher` (tenía que estar dentro de `ion-content`).
+- Detecte que faltaba `IonIcon` en `imports` de `tab1.page.ts` y lo agregué, lo que resolvió los errores de ambas pestañas.
+- Corregi un import equivocado (`addIcons` en lugar de `IonIcon`) y la ruta del archivo del traductor.
+- Elegí los íconos propios de las pestañas.
