@@ -17,6 +17,8 @@ Claude (Anthropic), en el chat web.
 - Pegue mensajes de error de la consola (`aria-hidden` y `ion-refresher must be used inside ion-content`) para que me ayude a entenderlos.
 - Pedi cómo mostrar íconos de sol, nubes y lluvia según el estado del cielo, y cómo cambiar los íconos de las pestañas
 - Pegue errores de la consola (`ion-icon is not a known element` y `Cannot read properties of undefined`) para que me ayude a encontrar la causa.
+- Pedi ayuda para armar el README con capturas y cómo acomodar las imágenes en tablas.
+- Pedi ayuda para agregar el PDF y los requisitos previos del README.
 
 ## Codigo que genero la IA
 - Codigo base de `clima.service.ts`.
@@ -32,6 +34,8 @@ Claude (Anthropic), en el chat web.
 - El HTML del `ion-refresher` y del `ion-toast`.
 - El archivo `clima-codigo.ts` (traductor de `weather_code` a texto e ícono).
 - La estructura del campo `clima` en `tab1` y `tab2`, y el HTML con `ion-icon`.
+- La estructura base del README y el formato de tabla con HTML para las capturas.
+- Como agregar el archivo .pdf
 
 ## Que hice yo
 - Cree el proyecto, el repositorio y los commits.
@@ -53,3 +57,4 @@ Claude (Anthropic), en el chat web.
 - Detecte que faltaba `IonIcon` en `imports` de `tab1.page.ts` y lo agregué, lo que resolvió los errores de ambas pestañas.
 - Corregi un import equivocado (`addIcons` en lugar de `IonIcon`) y la ruta del archivo del traductor.
 - Elegí los íconos propios de las pestañas.
+- Corregi el README (rutas de las imágenes y sus nombres).
