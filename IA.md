@@ -19,6 +19,9 @@ Claude (Anthropic), en el chat web.
 - Pegue errores de la consola (`ion-icon is not a known element` y `Cannot read properties of undefined`) para que me ayude a encontrar la causa.
 - Pedi ayuda para armar el README con capturas y cómo acomodar las imágenes en tablas.
 - Pedi ayuda para agregar el PDF y los requisitos previos del README.
+- Pedí ayuda para generar el APK con Capacitor y Android Studio.
+- Pegué los errores de Gradle (versión de Java y archivo `cordova.variables.gradle` que faltaba) para entender la causa.
+- Conté que la app mostraba el mensaje de error en el celular y pedí cómo encontrar el problema.
 
 ## Codigo que genero la IA
 - Codigo base de `clima.service.ts`.
@@ -36,6 +39,9 @@ Claude (Anthropic), en el chat web.
 - La estructura del campo `clima` en `tab1` y `tab2`, y el HTML con `ion-icon`.
 - La estructura base del README y el formato de tabla con HTML para las capturas.
 - Como agregar el archivo .pdf
+- Los pasos para agregar la plataforma Android (`@capacitor/android`, `npx cap add android`).
+- La explicación de por qué fallaba el Gradle sync y qué comandos regenerar (`npm install`, `npm run build`, `npx cap sync android`).
+- Las pruebas para diagnosticar por qué el APK no cargaba el clima.
 
 ## Que hice yo
 - Cree el proyecto, el repositorio y los commits.
@@ -58,3 +64,7 @@ Claude (Anthropic), en el chat web.
 - Corregi un import equivocado (`addIcons` en lugar de `IonIcon`) y la ruta del archivo del traductor.
 - Elegí los íconos propios de las pestañas.
 - Corregi el README (rutas de las imágenes y sus nombres).
+- Instalé Android Studio y cambié el Gradle JDK a la versión 21.
+- Regeneré los archivos que faltaban y generé el APK.
+- Probé el APK en mi celular, encontré que no cargaba el clima y lo corregí regenerando la app en el orden correcto.
+- Subí el APK a la sección Releases del repositorio.
